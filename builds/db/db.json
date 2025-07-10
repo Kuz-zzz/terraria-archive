@@ -1,0 +1,11 @@
+[{"id":1,
+	"name":"Mob Switch",
+	"image":"mobswitch.png",
+	"description":"Prevents all natural mob spawns",
+	"tags":["Wiring", "Glitches", "Mobs"]},
+{"id":2,
+	"name":"AFK Water and Shimmer Duper",
+	"image":"afkliquid.png",
+	"description":"Get infinite amount of water or shimmer from one bucket",
+	"tags":["Wiring", "Glitches", "Liquids"]}
+]
