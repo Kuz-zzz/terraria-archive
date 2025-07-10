@@ -1,0 +1,15 @@
+[{"id":1,
+	"name":"Liquid Duplication",
+	"image":"liquiddupe.png",
+	"description":"Get infinite amounts of any liquid using just one bucket",
+	"platform":["Any"],
+	"status":"Works",
+	"tags":["Duplication", "Liquids"]},
+{"id":2,
+	"name":"Cart Dash",
+	"image":"cartdash.png",
+	"description":"Instantly accelerate to the maximum speed by using dash and mounting a minecart at the same time",
+	"platform":["Any"],
+	"status":"Works",
+	"tags":["Minecart", "Movement"]}
+]

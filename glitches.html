@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Terraria Glitches"/>
+    <meta property="og:image" content="static/tcalogo2.png" />
+    <meta property="og:description" content="Archive of creations and discoveries of the Terraria community" />
+    <title>Terraria Glitches</title>
+</head>
+
+<body>
+<div class="navdiv">
+    <input type="checkbox"  id="menu-toggle">
+    <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="nav-menu">
+        <ul class="navlist">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li>
+                <a href="#">Resources</a>
+                <ul class="dropdown">
+                    <li><a href="../glitches.html">Tricks & Glitches</a></li>
+                    <li><a href="../guides.html">Guides</a></li>
+                    <li><a href="../software.html">Software</a></li>
+                    <li><a href="../builds.html">Builds</a></li>
+                    <li><a href="../seeds.html">Seeds</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content-wrap">
+	<div>
+		<input type="text" class="search" id="search" placeholder="Search...">
+	</div>
+	<div class="tag-popup">
+		<div id="tag-checkboxes" class="tag-filter"></div>
+	</div>
+	<div class="card-list" id="card-list"></div>
+
+<script>
+    let allEntries = [];
+	let currentEntries = [];
+
+	async function loadData() {
+		const response = await fetch('./glitches/db/db.json');
+		if (!response.ok) throw new Error('Failed to load data');
+		allEntries = await response.json();
+		currentEntries = [...allEntries];
+		initPage();
+	}
+
+	function initPage() {
+		const tagContainer = document.getElementById('tag-checkboxes');
+		const searchInput = document.getElementById('search');
+
+		searchInput.addEventListener('input', filterEntries);
+
+		const allTags = Array.from(new Set(allEntries.flatMap(entry => entry.tags))).sort();
+
+		allTags.forEach(tag => {
+			const label = document.createElement('label');
+			label.className = 'tag-1';
+
+			const checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.value = tag;
+			checkbox.className = 'tag-checkbox';
+
+			checkbox.addEventListener('change', filterEntries);
+
+			label.appendChild(checkbox);
+			label.append(` ${tag}`);
+			tagContainer.appendChild(label);
+		});
+
+		displayEntries(allEntries);
+	}
+
+	function getStatus(status) {
+		switch(status) {
+			case 'Up-to-Date': return 'status-up-to-date';
+			case 'Abandoned but Works': return 'status-works';
+			case 'Outdated': return 'status-outdated';
+			case 'Deprecated': return 'status-deprecated';
+			default: return '';
+		}
+	}
+
+	function getTags(tags) {
+		return tags.map(tag => `<p class="tag-1">${tag}</p>`).join('');
+	}
+
+	function displayEntries(entries) {
+		const container = document.getElementById('card-list');
+		container.innerHTML = entries.map(entry => `
+			<div class="card-list-element">
+				<a href="glitches/${entry.name}.html" target="_blank" rel="noopener noreferrer">
+					<div class="card-div">
+						<div class="card-img-div">
+							${entry.image ? `<img class="card-list-img" src="glitches/images/${entry.image}" alt="${entry.name}" height="100">` : ''}
+						</div>
+						<div class="card-details">
+							<p class="card-title">${entry.name}</p>
+							<div class="short-description">
+								<p>${entry.description}</p>
+							</div>
+							<div class="more-card-details">
+								<p><strong>Platform:</strong> ${entry.platform.join(', ')}</p>
+								<p><strong>Status:</strong> <span class="${getStatus(entry.status)}">${entry.status}</span></p>
+							</div>
+							<div class="tags-1">${getTags(entry.tags)}</div>
+						</div>    
+					</div>
+				</a>    
+			</div>
+		`).join('');
+	}
+
+	function filterEntries() {
+		const searchTerm = document.getElementById('search').value.toLowerCase();
+		const selectedTags = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(cb => cb.value);
+
+		currentEntries = allEntries.filter(entry => {
+			const matchesSearch = entry.name.toLowerCase().includes(searchTerm) || 
+								  entry.description.toLowerCase().includes(searchTerm);
+
+			const matchesTags = selectedTags.length === 0 ||
+				selectedTags.every(tag => entry.tags.includes(tag));
+
+			return matchesSearch && matchesTags;
+		});
+		displayEntries(currentEntries);
+	}
+	window.onload = loadData;
+</script>
+</div>
+</body>
+
+<footer class="footer">
+    <div class="separator"></div>
+    <p class="footer_text">This website is still in development<br>
+		Join our <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/qdhJv7Cayz">Discord server</a><br>
+        This site is not affiliated with Terraria or Re-Logic.<br>
+        Terraria is a registered trademark of Re-Logic.<br>
+        Trademarks are the property of their respective owners. Game materials copyright Re-Logic.
+    </p>
+</footer>
+</html>
