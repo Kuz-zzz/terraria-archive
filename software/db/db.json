@@ -519,5 +519,14 @@
 	"platform":["Browser"],
 	"dev":"Filipssh",
 	"status":"Up-to-Date",
-	"tags":["Wiring"]}
+	"tags":["Wiring"]},
+{"id":62,
+	"name":"Terra AWG",
+	"image":"terraawg.png",
+	"description":"Standalone tool for generating vanilla Terraria compatible worlds.",
+	"version":null,
+	"platform":["Windows", "Linux", "MacOS"],
+	"dev":"alpha0010",
+	"status":"Up-to-Date",
+	"tags":["Worldgen"]}
 ]
