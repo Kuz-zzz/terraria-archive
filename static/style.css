@@ -1056,4 +1056,9 @@ summary {
 		margin-left: 1%;
 		margin-right: 1%;
 	}
+	
+	.search {
+		margin-left: 1%;
+		width: 50%;
+	}
 }
