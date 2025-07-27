@@ -171,8 +171,8 @@ nav {
   max-height: 100%;
 }
 .card-img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .card-img-div {
@@ -522,6 +522,7 @@ nav {
 
 .carousel-container {
   display: inline-block;
+  max-width: 100%;
 }
 
 .my-carousel {
@@ -548,6 +549,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
 }
 
 .article-description, .article-links {
@@ -565,13 +567,17 @@ nav {
   padding-right: 5%;
 }
 
+.article-page-details{
+  max-width: 100%;	
+}
+
 .article-details-table {
   border: 1px solid #4CAF50;
   border-radius: 4px;
   height: auto;
   width: 400px;
   max-width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .article-details-table th {
