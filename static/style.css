@@ -242,6 +242,7 @@ nav {
   padding: 0;
   height: 300px;
   width: 600px;
+  max-width: 100%;
   overflow: hidden;
   text-align: center;
   position: relative;
@@ -569,6 +570,7 @@ nav {
   border-radius: 4px;
   height: auto;
   width: 400px;
+  max-width: 100%;
   margin-top: 30px;
 }
 
@@ -919,8 +921,8 @@ summary {
   transition: all .3s ease-in;
   opacity: 1;
   transform: scale(5);
-  -ms-transform: scale(5); /* IE 9 */
-  -webkit-transform: scale(5); /* Safari and Chrome */
+  -ms-transform: scale(5);
+  -webkit-transform: scale(5);
   z-index: 101;
 
 }
@@ -945,11 +947,10 @@ summary {
         width: 100%;
         padding: 20px;
         margin: 0;
-      border: none;
+        border: none;
     }
 
   .navlist li a {
-    font-size: 30px;
     margin: 10px;
   }
     .menu-icon {
@@ -1042,14 +1043,6 @@ summary {
 
     .navlist li:active {
       background-color: #1f2029;
-    }
-
-    .navlist li a {
-      font-size: 3em;
-    }
-
-    .guide-link {
-      font-size: 20px;
     }
 	
 	.tag-popup {
