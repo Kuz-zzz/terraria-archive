@@ -1051,4 +1051,14 @@ summary {
     .guide-link {
       font-size: 20px;
     }
+	
+	#tag-popup {
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+	
+	.search {
+		margin-left: 1%;
+		width: 50%;
+	}
 }
