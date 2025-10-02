@@ -93,7 +93,7 @@
 		container.innerHTML = entries.map(entry => `
 			<div class="card-list-element">
 					<div class="card-div">
-						<div class="card-img-div">
+						<a class="card-img-div" href="seeds/images/${entry.image}" target="_blank" rel="noopener noreferrer">
 							${entry.image ? `<img class="card-list-img" id="seed-img" src="seeds/images/${entry.image}" alt="${entry.name}" height="100">` : ''}
 						</div>
 						<div class="card-details">
