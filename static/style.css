@@ -918,21 +918,6 @@ summary {
     margin-top: 15px;
 }
 
-#seed-img:hover{
-    color: #424242; 
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  -ms-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  opacity: 1;
-  transform: scale(5);
-  -ms-transform: scale(5);
-  -webkit-transform: scale(5);
-  z-index: 101;
-
-}
-
 @media only screen and (max-width: 1100px) {
   .content-wrap {
     margin-top: 80px;
