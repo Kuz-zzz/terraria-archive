@@ -87,6 +87,14 @@
 	function getTags(tags) {
 		return tags.map(tag => `<p class="tag-1">${tag}</p>`).join('');
 	}
+	
+	function getStatus(status) {
+		switch(status) {
+			case 'Works': return 'status-up-to-date';
+			case 'Outdated': return 'status-outdated';
+			default: return '';
+		}
+	}
 
 	function displayEntries(entries) {
 		const container = document.getElementById('card-list');
@@ -102,6 +110,8 @@
 								<p>${entry.description}</p>
 							</div>
 							<div class="more-card-details">
+								<p><strong>Status:</strong> <span class="${getStatus(entry.status)}">${entry.status}</span></p>
+								<p><strong>Version:</strong> ${entry.version}</p>
 							</div>
 							<div class="tags-1">${getTags(entry.tags)}</div>
 						</div>    
