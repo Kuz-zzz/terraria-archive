@@ -88,7 +88,9 @@
 		switch(status) {
 			case 'Up-to-Date': return 'status-up-to-date';
 			case 'Abandoned but Works': return 'status-works';
+			case 'Partially works': return 'status-works';
 			case 'Outdated': return 'status-outdated';
+			case 'Patched': return 'status-outdated';
 			case 'Deprecated': return 'status-deprecated';
 			default: return '';
 		}
